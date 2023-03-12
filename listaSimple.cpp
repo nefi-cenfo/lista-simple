@@ -202,6 +202,32 @@ bool listaSimple::eliminar(int _dato)
 
 	return removido;
 }
+// 1,3,4,5,3,3,6
+void listaSimple::eliminarRepetidos()
+{
+	if (getLargo() > 1) { //Verifica que la lista tenga al menos 2 valores
+		nodoS* aux = getCab(); //Obtiene la cabeza
+		while (aux->getSgte() != NULL) //Recorre la lista desde la cabeza hasta la cola
+		{
+			nodoS* act = aux->getSgte(); //Obtiene el valor con que se va a comparar con el que empieza a recorrer la lista
+			nodoS* ant = aux; //Define como anterior el valor que esta antes del valor a comparar
+			while (act->getSgte() != NULL) //Recorre el resto de la lista buscando repetidos
+			{
+				if (aux->getDato() == act->getDato()) { //Verifica si el valor con el que comienza a recorrer la lista en el ciclo padre es igual al valor actual a comparar
+					nodoS* borrado = act; //Si son iguales los valores, define como borrado ese valor que esta comparando
+					ant->setSgte(act->getSgte()); //Le dice al anterior que su nuevo siguiente es el siguiente del valor a comparar
+					act = act->getSgte(); //Define como actual el valor siguiente del valor a comparar
+					delete borrado; //Se borra el puntero que apunta al valor repetido
+				} else { //En el caso de no encontrar repetidos
+					ant = act; //Define como anterior el valor actual
+					act = act->getSgte(); //Define como actual el siguiente valor
+				}
+			}
+			aux = aux->getSgte(); //Continua con el siguiente valor de la lista
+		}
+		
+	}
+}
 
 void listaSimple::desplegarLista()
 {

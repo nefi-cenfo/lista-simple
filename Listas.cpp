@@ -22,6 +22,7 @@ void menu() {
         cout << "(3) Agregar antes de...  " << endl;
         cout << "(4) Agregar despues de...  " << endl;
         cout << "(7) Remover un dato de la lista" << endl;
+        cout << "(8) Eliminar repetidos" << endl;
         cout << "(10) Desplegar la lista" << endl;
         cout << "(0) Finalizar" << endl;
         cout << "Opcion seleccionada ->";
@@ -77,6 +78,14 @@ void menu() {
 
             break;
         }
+
+        case 8: {
+            lista->eliminarRepetidos();
+            cout << "Se eliminaron los numeros repetidos" << endl;
+
+            break;
+        }
+
         case 10:
             cout << "Desplegando los valores de la lista" << endl;
             lista->desplegarLista();
