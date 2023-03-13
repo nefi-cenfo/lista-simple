@@ -218,6 +218,7 @@ void listaSimple::eliminarRepetidos()
 					ant->setSgte(act->getSgte()); //Le dice al anterior que su nuevo siguiente es el siguiente del valor a comparar
 					act = act->getSgte(); //Define como actual el valor siguiente del valor a comparar
 					delete borrado; //Se borra el puntero que apunta al valor repetido
+					setLargo(getLargo() - 1); //Disminuye el largo
 				} else { //En el caso de no encontrar repetidos
 					ant = act; //Define como anterior el valor actual
 					act = act->getSgte(); //Define como actual el siguiente valor
