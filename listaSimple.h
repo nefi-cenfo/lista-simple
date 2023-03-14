@@ -39,6 +39,7 @@ public:
 	bool agregarDespuesDe(int, int); //Agregar un dato despues de otro en la lista.
 
 	bool eliminar(int); //Eliminar de la lista el dato de referencia.
+	void eliminarRepetidos(); //Eliminar todos los repetidos.
 
 	void desplegarLista(); //Desplegar todos los datos de la lista, del primero al ultimo.
 
